@@ -1,7 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 
     // Start date of cycle
-    const startDate = new Date("2024-10-25");
+    const startDate = new Date("2024-10-20");
     const today = new Date(); 
 
     // Calculating how many days have passed
@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // Working day or Free day?
     const curDay = daysPassed % cycleLength;
-    const isFree = curDay >= 4;
+    const isFree = curDay < 4;
 
     const statusDiv = document.getElementById("status");
     statusDiv.textContent = isFree ? "SAM IS FREE TODAY" : "SAM IS NOT FREE TODAY";
