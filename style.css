@@ -14,3 +14,10 @@ body {
     text-align: center;
     color: #333;
 }
+
+#nextFreeInfo {
+    font-size: 1em;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
