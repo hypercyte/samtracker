@@ -19,16 +19,23 @@ window.addEventListener("DOMContentLoaded", () => {
     statusDiv.textContent = isFree ? "SAM IS FREE TODAY" : "SAM IS NOT FREE TODAY";
     statusDiv.style.color = isFree ? "green" : "red";
 
+    // Date format
+    const dateFormat = { year: 'numeric', month: 'long', day: 'numeric' };
+
     // Calculating when Sam is next free or free until
     const nextFreeDiv = document.getElementById("nextFreeInfo");
     let nextFreeDate;
     if (isFree) {
         const daysUntilLocked = 4 - curDay;
         nextFreeDate = new Date(today.getTime() + daysUntilLocked * oneDay);
-        nextFreeDiv.textContent = `Sam is back to work on ${nextFreeDate.toLocaleDateString()}`;
+        nextFreeDiv.textContent = `Sam is back to work on ${nextFreeDate.toLocaleDateString(undefined, dateFormat)}`;
     } else {
         const daysUntilFree = 8 - curDay;
         nextFreeDate = new Date(today.getTime() + daysUntilFree * oneDay);
-        nextFreeDiv.textContent = `Sam is free again on ${nextFreeDate.toLocaleDateString()}`;
+        nextFreeDiv.textContent = `Sam is free again on ${nextFreeDate.toLocaleDateString(undefined, dateFormat)}`;
     }
+
+    // Display today's date
+    const dateDiv = document.getElementById("date");
+    dateDiv.textContent = `${today.toLocaleDateString(undefined, dateFormat)}`;
 })
